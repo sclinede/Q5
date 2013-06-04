@@ -2,7 +2,7 @@ require 'uri'
 
 class UriValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    unless value =~ URI.regexp(['http']) #/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+    unless value =~ URI.regexp(['http']) 
       record.errors[attribute] << "Wrong URI format"
       return
     end
